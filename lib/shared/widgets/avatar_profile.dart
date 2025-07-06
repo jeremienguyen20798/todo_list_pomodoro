@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list_pomodoro/features/login/view/login_page.dart';
 import 'package:todo_list_pomodoro/shared/constants/color_constants.dart';
 
 class AvatarProfile extends StatelessWidget {
@@ -6,13 +7,20 @@ class AvatarProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 48.0,
-      height: 48.0,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle, color: ColorConstants.avatarBackgroundColor),
-      child: Icon(Icons.account_circle,
-          color: ColorConstants.iconColor, size: 48.0),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => const LoginPage()));
+      },
+      child: Container(
+        width: 48.0,
+        height: 48.0,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: ColorConstants.avatarBackgroundColor),
+        child: Icon(Icons.account_circle,
+            color: ColorConstants.iconColor, size: 48.0),
+      ),
     );
   }
 }

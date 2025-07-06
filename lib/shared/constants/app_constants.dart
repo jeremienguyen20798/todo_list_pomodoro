@@ -14,7 +14,7 @@ class AppConstants {
 
   static const String addTask = 'Thêm công việc';
   static const String titleTask = 'Tiêu đề công việc';
-  static const String inputTaskTitle = 'Nhập tiêu đề của bạn...';
+  static const String inputTaskTitle = 'Thêm một công việc...';
   static const String contentTask = 'Nội dung thực hiện';
   static const String inputContent = 'Nhập nội dung...';
   static const String numberPomodoro = 'Số lượng Pomodoro';

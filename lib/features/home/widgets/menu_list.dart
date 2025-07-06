@@ -1,5 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_list_pomodoro/features/task/view/task_page.dart';
 
 import '../../../shared/constants/color_constants.dart';
 
@@ -11,6 +12,12 @@ class MenuList extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => const TaskPage(title: 'Hôm nay')));
+          },
           horizontalTitleGap: 8.0,
           leading: Icon(Icons.wb_sunny, color: ColorConstants.todayColor),
           contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -19,6 +26,12 @@ class MenuList extends StatelessWidget {
               style: TextStyle(fontSize: 14.0, color: ColorConstants.grey400)),
         ),
         ListTile(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => const TaskPage(title: 'Ngày mai')));
+          },
           horizontalTitleGap: 8.0,
           leading: Icon(Icons.tsunami, color: ColorConstants.tomorrowColor),
           contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -27,6 +40,12 @@ class MenuList extends StatelessWidget {
               style: TextStyle(fontSize: 14.0, color: ColorConstants.grey400)),
         ),
         ListTile(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => const TaskPage(title: 'Tuần này')));
+          },
           horizontalTitleGap: 8.0,
           leading: Icon(Icons.event, color: ColorConstants.seedAppColor),
           contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),

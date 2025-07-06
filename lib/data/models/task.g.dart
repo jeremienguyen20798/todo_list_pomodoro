@@ -25,7 +25,7 @@ class TaskAdapter extends TypeAdapter<Task> {
       end: fields[6] as DateTime?,
       isAlarm: fields[8] as bool?,
       isRepeat: fields[9] as bool?,
-    )..createAt = fields[7] as DateTime;
+    );
   }
 
   @override
@@ -62,3 +62,36 @@ class TaskAdapter extends TypeAdapter<Task> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Task _$TaskFromJson(Map<String, dynamic> json) => Task(
+      content: json['content'] as String,
+      labels: (json['labels'] as List<dynamic>?)
+          ?.map((e) => Label.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      pomodoro: json['pomodoro'] == null
+          ? null
+          : Pomodoro.fromJson(json['pomodoro'] as Map<String, dynamic>),
+      status: (json['status'] as num?)?.toInt(),
+      start: json['start'] == null
+          ? null
+          : DateTime.parse(json['start'] as String),
+      end: json['end'] == null ? null : DateTime.parse(json['end'] as String),
+      isAlarm: json['is_alarm'] as bool?,
+      isRepeat: json['is_repeat'] as bool?,
+    )..createAt = DateTime.parse(json['create_at'] as String);
+
+Map<String, dynamic> _$TaskToJson(Task instance) => <String, dynamic>{
+      'content': instance.content,
+      'labels': instance.labels,
+      'pomodoro': instance.pomodoro,
+      'status': instance.status,
+      'start': instance.start?.toIso8601String(),
+      'end': instance.end?.toIso8601String(),
+      'create_at': instance.createAt.toIso8601String(),
+      'is_alarm': instance.isAlarm,
+      'is_repeat': instance.isRepeat,
+    };

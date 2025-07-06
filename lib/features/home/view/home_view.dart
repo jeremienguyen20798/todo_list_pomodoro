@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
         centerTitle: false,
         automaticallyImplyLeading: false,
         leadingWidth: 0.0,
-        actions: menuActions(),
+        actions: menuActions(), 
       ),
       body: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,

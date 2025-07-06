@@ -42,3 +42,17 @@ class PomodoroAdapter extends TypeAdapter<Pomodoro> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Pomodoro _$PomodoroFromJson(Map<String, dynamic> json) => Pomodoro(
+      (json['numberOfPomodoro'] as num).toInt(),
+      (json['time'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$PomodoroToJson(Pomodoro instance) => <String, dynamic>{
+      'numberOfPomodoro': instance.numberOfPomodoro,
+      'time': instance.time,
+    };

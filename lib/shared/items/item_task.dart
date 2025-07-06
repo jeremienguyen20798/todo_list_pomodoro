@@ -8,18 +8,25 @@ class ItemTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: const EdgeInsets.only(left: 12.0),
-      title: Text(
-        task.content,
-        maxLines: 1,
-        style: const TextStyle(
-            fontSize: 16.0,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            overflow: TextOverflow.ellipsis),
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0), color: Colors.white),
+      child: ListTile(
+        leading: Checkbox(value: false, onChanged: (value) {}),
+        minLeadingWidth: 0.0,
+        horizontalTitleGap: 0.0,
+        contentPadding: EdgeInsets.zero,
+        title: Text(
+          task.content,
+          maxLines: 1,
+          style: const TextStyle(
+              fontSize: 16.0,
+              color: Colors.black,
+              overflow: TextOverflow.ellipsis),
+        ),
+        trailing:
+            IconButton(onPressed: () {}, icon: const Icon(Icons.play_circle)),
       ),
-      trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
     );
   }
 }
