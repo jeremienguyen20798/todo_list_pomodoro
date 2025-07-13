@@ -18,8 +18,8 @@ class AvatarProfile extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: ColorConstants.avatarBackgroundColor),
-        child: Icon(Icons.account_circle,
-            color: ColorConstants.iconColor, size: 48.0),
+        child: const Icon(Icons.account_circle,
+            color: ColorConstants.whiteColor, size: 48.0),
       ),
     );
   }

@@ -11,10 +11,6 @@ extension MenuActionsExtension on HomeView {
           icon: Icon(Icons.groups_outlined, color: ColorConstants.iconColor)),
       IconButton(
           onPressed: () {},
-          icon: Icon(Icons.emoji_events_outlined,
-              color: ColorConstants.iconColor)),
-      IconButton(
-          onPressed: () {},
           icon: Icon(Icons.stacked_bar_chart_outlined,
               color: ColorConstants.iconColor)),
     ];

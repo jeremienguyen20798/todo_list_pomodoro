@@ -14,17 +14,17 @@ class NotificationUtils {
 
   static Future<void> initNotifications() async {
     // Request permission
-    await flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
-        ?.requestNotificationsPermission();
-    const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
-    const InitializationSettings initializationSettings =
-        InitializationSettings(android: initializationSettingsAndroid);
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onDidReceiveBackgroundNotificationResponse: onNotificationClicked,
-        onDidReceiveNotificationResponse: onNotificationClicked);
+    // await flutterLocalNotificationsPlugin
+    //     .resolvePlatformSpecificImplementation<
+    //         AndroidFlutterLocalNotificationsPlugin>()
+    //     ?.requestNotificationsPermission();
+    // const AndroidInitializationSettings initializationSettingsAndroid =
+    //     AndroidInitializationSettings('@mipmap/ic_launcher');
+    // const InitializationSettings initializationSettings =
+    //     InitializationSettings(android: initializationSettingsAndroid);
+    // await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+    //     onDidReceiveBackgroundNotificationResponse: onNotificationClicked,
+    //     onDidReceiveNotificationResponse: onNotificationClicked);
   }
 
   static Future<void> showNotification(

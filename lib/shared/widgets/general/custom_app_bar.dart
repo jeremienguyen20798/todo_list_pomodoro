@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final Function(int)? onClicked;
 
-  const CustomAppBar({super.key, required this.title});
+  const CustomAppBar({super.key, required this.title, this.onClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,39 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               fontSize: 16.0,
               fontWeight: FontWeight.bold)),
       actions: [
-        IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_horiz, color: Colors.grey),
-            color: Colors.black),
+        PopupMenuButton<int>(
+          icon: const Icon(Icons.more_horiz, color: Colors.grey),
+          itemBuilder: (context) => [
+            const PopupMenuItem(
+              value: 1,
+              child: ListTile(
+                leading: Icon(Icons.sync_alt, color: Colors.grey),
+                title: Text(
+                  'Sắp xếp theo',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+            ),
+            const PopupMenuItem(
+              value: 2,
+              child: ListTile(
+                leading: Icon(Icons.list, color: Colors.grey),
+                title: Text(
+                  'Chỉnh sửa đồng loạt',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+            ),
+          ],
+          offset: const Offset(0, 48),
+          color: Colors.white,
+          elevation: 2,
+          onSelected: (value) {
+            if (onClicked != null) {
+              onClicked!(value);
+            }
+          },
+        ),
       ],
     );
   }
